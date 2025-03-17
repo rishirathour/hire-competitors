@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { SearchIcon, Filter, BarChart3 } from 'lucide-react';
+import { SearchIcon, Filter, BarChart3, Building2, Users } from 'lucide-react';
 
 const Features = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -46,6 +46,21 @@ const Features = () => {
     }
   ];
 
+  const testimonials = [
+    {
+      quote: "Switch iT has revolutionized how we find talent. The pre-filtered candidates save us time and improve our hiring success rate.",
+      author: "Mark T., HR Director",
+      icon: <Building2 className="w-6 h-6 text-primary" />,
+      delay: 100
+    },
+    {
+      quote: "We've reduced our time-to-hire by 40% since using Switch iT. The quality of candidates is exceptional, and they're actually interested in making a move.",
+      author: "Jessica L., Talent Acquisition Manager",
+      icon: <Users className="w-6 h-6 text-primary" />,
+      delay: 300
+    }
+  ];
+
   return (
     <section id="features-section" className="py-20 px-6 md:px-12 bg-white relative">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-neutral-light/30 to-white -z-10" />
@@ -63,7 +78,7 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
           {features.map((feature, index) => (
             <div 
               key={index} 
@@ -81,6 +96,39 @@ const Features = () => {
               <p className="text-neutral">{feature.description}</p>
             </div>
           ))}
+        </div>
+
+        {/* Testimonials */}
+        <div className="mt-20 mb-16">
+          <div className="text-center mb-16">
+            <div className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full mb-6">
+              Testimonials
+            </div>
+            <h3 className="text-3xl md:text-4xl font-bold">
+              What Recruiters Say
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div 
+                key={index} 
+                className={cn(
+                  "bg-white border border-neutral-light/50 rounded-2xl p-8 shadow-sm transition-all duration-700 ease-out",
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+                )}
+                style={{ transitionDelay: isVisible ? `${testimonial.delay}ms` : '0ms' }}
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center">
+                    {testimonial.icon}
+                  </div>
+                </div>
+                <p className="text-neutral-dark mb-6 text-lg italic">"{testimonial.quote}"</p>
+                <p className="font-semibold">{testimonial.author}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
