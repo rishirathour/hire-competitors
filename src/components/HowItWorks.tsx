@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { Play, Pause } from 'lucide-react';
 
 const HowItWorks = () => {
   const [isVisible, setIsVisible] = useState(false);
-
+  const [isPlaying, setIsPlaying] = useState(false);
+  
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -47,6 +49,18 @@ const HowItWorks = () => {
     }
   ];
 
+  const handleVideoControl = () => {
+    const video = document.getElementById('demo-video') as HTMLVideoElement;
+    if (video) {
+      if (isPlaying) {
+        video.pause();
+      } else {
+        video.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
   return (
     <section id="how-it-works-section" className="py-20 px-6 md:px-12 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-neutral-light/30 to-white -z-10" />
@@ -59,6 +73,45 @@ const HowItWorks = () => {
           <p className="text-neutral mx-auto max-w-3xl text-lg">
             Our platform makes it easy for recruiters to find and connect with the perfect candidates.
           </p>
+        </div>
+
+        {/* Video Component */}
+        <div 
+          className={cn(
+            "mb-20 relative rounded-2xl overflow-hidden shadow-xl transition-all duration-700",
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+          )}
+          style={{ transitionDelay: '100ms' }}
+        >
+          <div className="relative aspect-video bg-black rounded-2xl overflow-hidden">
+            <video
+              id="demo-video"
+              className="w-full h-full object-cover"
+              poster="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=2000&q=80"
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
+            >
+              <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            
+            <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/20 transition-all duration-300">
+              <Button 
+                onClick={handleVideoControl}
+                size="lg"
+                className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white rounded-full w-16 h-16 flex items-center justify-center"
+              >
+                {isPlaying ? (
+                  <Pause className="h-6 w-6" />
+                ) : (
+                  <Play className="h-6 w-6 ml-1" />
+                )}
+              </Button>
+            </div>
+          </div>
+          <div className="absolute bottom-4 left-4 bg-black/70 text-white px-4 py-2 rounded-lg text-sm backdrop-blur-sm">
+            How Switch iT helps recruiters find top talent
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
