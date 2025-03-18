@@ -32,13 +32,13 @@ const HowItWorks = () => {
     {
       number: "1",
       title: "Data-Driven Candidate Search",
-      description: "Use our powerful tools to find high-intent candidates who match your specific hiring needs.",
+      description: "Use our powerful tools to find high-intent passive jobseekers who match your specific hiring needs.",
       delay: 100
     },
     {
       number: "2",
       title: "Access Filtered Leads",
-      description: "Browse through pre-filtered candidates who are genuinely interested in new opportunities.",
+      description: "Browse through pre-filtered passive jobseekers who are genuinely interested in new opportunities.",
       delay: 300
     },
     {
@@ -71,14 +71,14 @@ const HowItWorks = () => {
             How <span className="text-primary">Switch iT</span> Works for Recruiters
           </h2>
           <p className="text-neutral mx-auto max-w-3xl text-lg">
-            Our platform makes it easy for recruiters to find and connect with the perfect candidates.
+            Our platform makes it easy for recruiters to find and connect with passive jobseekers.
           </p>
         </div>
 
-        {/* Video Component */}
+        {/* Video Component - reduced by 70% */}
         <div 
           className={cn(
-            "mb-20 relative rounded-2xl overflow-hidden shadow-xl transition-all duration-700",
+            "mb-20 relative rounded-2xl overflow-hidden shadow-xl transition-all duration-700 max-w-2xl mx-auto",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           )}
           style={{ transitionDelay: '100ms' }}
@@ -110,7 +110,7 @@ const HowItWorks = () => {
             </div>
           </div>
           <div className="absolute bottom-4 left-4 bg-black/70 text-white px-4 py-2 rounded-lg text-sm backdrop-blur-sm">
-            How Switch iT helps recruiters find top talent
+            How Switch iT helps recruiters find passive jobseekers
           </div>
         </div>
 
@@ -119,7 +119,7 @@ const HowItWorks = () => {
             <div 
               key={index} 
               className={cn(
-                "bg-white border border-neutral-light/50 rounded-2xl p-8 shadow-sm transition-all duration-700 ease-out",
+                "bg-white border border-neutral-light/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 ease-out",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               )}
               style={{ transitionDelay: isVisible ? `${step.delay}ms` : '0ms' }}
@@ -142,7 +142,7 @@ const HowItWorks = () => {
               )}
               style={{ transitionDelay: isVisible ? '700ms' : '0ms' }}
             >
-              Start Finding Candidates
+              Get Started
             </Button>
           </Link>
         </div>

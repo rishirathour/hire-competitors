@@ -22,12 +22,17 @@ const Navbar = () => {
   return (
     <header 
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out py-4 px-6 md:px-12",
+        "sticky top-0 z-50 transition-all duration-300 ease-in-out py-4 px-6 md:px-12",
         scrolled ? "glass shadow-sm" : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
+          <img 
+            src="/lovable-uploads/72423587-e89e-4714-83d9-82023285bd3d.png" 
+            alt="Switch iT Logo" 
+            className="h-8 w-auto"
+          />
           <span className="font-bold text-2xl bg-clip-text text-primary">Switch iT</span>
         </Link>
 

@@ -15,7 +15,7 @@ const Hero = () => {
     <section className="relative min-h-screen w-full flex flex-col justify-center items-center px-6 md:px-12">
       <div className="absolute inset-0 bg-gradient-to-b from-neutral-light/30 to-white -z-10" />
       
-      {/* Purple blob decoration */}
+      {/* Blue blob decoration */}
       <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-1/3 left-1/3 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -z-10" />
       
@@ -45,7 +45,7 @@ const Hero = () => {
               isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             )}
           >
-            Switch iT is a recruiter tool designed to bridge the gap between companies and professionals looking for career transitions, enabling recruiters to identify, engage, and connect with potential candidates.
+            Switch iT is a recruiter tool designed to bridge the gap between companies and professionals looking for career transitions, enabling recruiters to identify, engage, and connect with potential passive job seekers.
           </p>
         </div>
         
@@ -57,7 +57,7 @@ const Hero = () => {
         >
           <Link to="/demo">
             <Button size="lg" className="bg-primary hover:bg-primary-light text-white px-8 py-6 text-lg shadow-sm hover:shadow-md transition-all">
-              Request Demo
+              Get Started
             </Button>
           </Link>
           <Link to="/how-it-works">

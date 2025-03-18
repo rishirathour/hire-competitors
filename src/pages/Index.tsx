@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
 import Footer from "@/components/Footer";
+import CompanyLogos from "@/components/CompanyLogos";
 
 const Index = () => {
   return (
@@ -11,8 +12,9 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
-        <Features />
+        <CompanyLogos />
         <HowItWorks />
+        <Features />
       </main>
       <Footer />
     </div>
