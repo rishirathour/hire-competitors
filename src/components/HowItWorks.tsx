@@ -119,7 +119,7 @@ const HowItWorks = () => {
             <div 
               key={index} 
               className={cn(
-                "bg-white border border-neutral-light/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 ease-out",
+                "bg-white border border-neutral-light/50 rounded-2xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.18)] transition-all duration-500 ease-out",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               )}
               style={{ transitionDelay: isVisible ? `${step.delay}ms` : '0ms' }}

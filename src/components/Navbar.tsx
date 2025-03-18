@@ -29,7 +29,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <img 
-            src="/lovable-uploads/72423587-e89e-4714-83d9-82023285bd3d.png" 
+            src="/lovable-uploads/db5631a0-5b85-4a58-ada1-0db9ddb149d9.png" 
             alt="Switch iT Logo" 
             className="h-8 w-auto"
           />
