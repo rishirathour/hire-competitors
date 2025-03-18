@@ -66,25 +66,6 @@ const Hero = () => {
             </Button>
           </Link>
         </div>
-        
-        <div 
-          className={cn(
-            "mt-16 md:mt-24 w-full max-w-4xl aspect-video bg-neutral-light/50 rounded-xl shadow-lg overflow-hidden transition-all duration-700 delay-400",
-            isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-95"
-          )}
-        >
-          {/* This would be your video presentation */}
-          <div className="w-full h-full flex items-center justify-center bg-neutral-light border border-neutral-light/50 rounded-xl">
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white ml-1">
-                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
-                </svg>
-              </div>
-              <p className="text-neutral-dark">Watch how Switch iT works</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
