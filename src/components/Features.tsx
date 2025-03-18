@@ -47,7 +47,7 @@ const Features = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full mb-6">
-            Key Features
+            Testimonials
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Why Recruiters Choose <span className="text-primary">Switch iT</span>
@@ -58,36 +58,25 @@ const Features = () => {
         </div>
 
         {/* Testimonials */}
-        <div className="mt-10 mb-16">
-          <div className="text-center mb-16">
-            <div className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full mb-6">
-              Testimonials
-            </div>
-            <h3 className="text-3xl md:text-4xl font-bold">
-              What Recruiters Say
-            </h3>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index} 
-                className={cn(
-                  "bg-white border border-neutral-light/50 rounded-2xl p-8 shadow-sm transition-all duration-700 ease-out",
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-                )}
-                style={{ transitionDelay: isVisible ? `${testimonial.delay}ms` : '0ms' }}
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center">
-                    {testimonial.icon}
-                  </div>
+        <div className="grid md:grid-cols-2 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <div 
+              key={index} 
+              className={cn(
+                "bg-white border border-neutral-light/50 rounded-2xl p-8 shadow-sm transition-all duration-700 ease-out",
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+              )}
+              style={{ transitionDelay: isVisible ? `${testimonial.delay}ms` : '0ms' }}
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center">
+                  {testimonial.icon}
                 </div>
-                <p className="text-neutral-dark mb-6 text-lg italic">"{testimonial.quote}"</p>
-                <p className="font-semibold">{testimonial.author}</p>
               </div>
-            ))}
-          </div>
+              <p className="text-neutral-dark mb-6 text-lg italic">"{testimonial.quote}"</p>
+              <p className="font-semibold">{testimonial.author}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
