@@ -25,23 +25,19 @@ const CompanyLogos = () => {
   }, []);
 
   const logos = [
-    { name: "Company 1", logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=150&h=50&fit=crop&auto=format" },
-    { name: "Company 2", logo: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=150&h=50&fit=crop&auto=format" },
-    { name: "Company 3", logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=150&h=50&fit=crop&auto=format" },
-    { name: "Company 4", logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=150&h=50&fit=crop&auto=format" },
-    { name: "Company 5", logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=150&h=50&fit=crop&auto=format" },
+    { name: "Spotify", logo: "/lovable-uploads/34bde5f7-f781-41a8-aabb-f1ef3de0c655.png" },
+    { name: "Palo Alto Networks", logo: "/lovable-uploads/0aa27713-af56-4c86-ba3f-ffd0691b4258.png" },
+    { name: "Snowflake", logo: "/lovable-uploads/488e5952-a522-467e-ab7e-aaff67a87ef7.png" },
+    { name: "Sisense", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Sisense_logo.svg/2560px-Sisense_logo.svg.png" },
+    { name: "American Express", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/1000px-American_Express_logo_%282018%29.svg.png" },
   ];
 
   return (
-    <section id="company-logos-section" className="py-12 px-6 md:px-12 bg-neutral-light/50">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8">
-          <p className="text-neutral text-lg">Trusted by leading companies</p>
-        </div>
-        
+    <section id="company-logos-section" className="py-8 px-6 md:px-12 bg-[#F9F9FB]">
+      <div className="max-w-7xl mx-auto">
         <div 
           className={cn(
-            "flex flex-wrap justify-center items-center gap-8 md:gap-12",
+            "flex flex-wrap justify-center items-center gap-10 md:gap-16 lg:gap-24",
             isVisible ? "opacity-100" : "opacity-0"
           )}
           style={{ transition: "opacity 0.5s ease-out" }}
@@ -49,13 +45,13 @@ const CompanyLogos = () => {
           {logos.map((company, index) => (
             <div 
               key={index} 
-              className="w-24 md:w-32 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+              className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
               style={{ transitionDelay: isVisible ? `${index * 100}ms` : '0ms' }}
             >
               <img 
                 src={company.logo} 
                 alt={`${company.name} logo`} 
-                className="max-h-full max-w-full object-contain" 
+                className="h-10 md:h-12 w-auto object-contain" 
               />
             </div>
           ))}
