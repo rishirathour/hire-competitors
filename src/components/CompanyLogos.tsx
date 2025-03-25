@@ -26,10 +26,14 @@ const CompanyLogos = () => {
 
   const logos = [
     { name: "Snowflake", logo: "/lovable-uploads/488e5952-a522-467e-ab7e-aaff67a87ef7.png" },
+    { name: "Microsoft", logo: "/lovable-uploads/9910dac9-7dde-465a-9c7b-a457e0fad50c.png" },
+    { name: "Google", logo: "/lovable-uploads/34bde5f7-f781-41a8-aabb-f1ef3de0c655.png" },
+    { name: "IBM", logo: "/lovable-uploads/72423587-e89e-4714-83d9-82023285bd3d.png" },
+    { name: "Amazon", logo: "/lovable-uploads/0aa27713-af56-4c86-ba3f-ffd0691b4258.png" },
   ];
 
   // Duplicate logos for continuous scroll effect
-  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
+  const duplicatedLogos = [...logos, ...logos];
 
   return (
     <section id="company-logos-section" className="py-8 px-6 md:px-12 bg-[#F9F9FB] overflow-hidden">
