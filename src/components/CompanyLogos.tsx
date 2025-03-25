@@ -28,29 +28,33 @@ const CompanyLogos = () => {
     { name: "Snowflake", logo: "/lovable-uploads/488e5952-a522-467e-ab7e-aaff67a87ef7.png" },
   ];
 
+  // Duplicate logos for continuous scroll effect
+  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
+
   return (
-    <section id="company-logos-section" className="py-8 px-6 md:px-12 bg-[#F9F9FB]">
+    <section id="company-logos-section" className="py-8 px-6 md:px-12 bg-[#F9F9FB] overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div 
-          className={cn(
-            "flex flex-wrap justify-center items-center gap-10 md:gap-16 lg:gap-24",
-            isVisible ? "opacity-100" : "opacity-0"
-          )}
-          style={{ transition: "opacity 0.5s ease-out" }}
-        >
-          {logos.map((company, index) => (
-            <div 
-              key={index} 
-              className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
-              style={{ transitionDelay: isVisible ? `${index * 100}ms` : '0ms' }}
-            >
-              <img 
-                src={company.logo} 
-                alt={`${company.name} logo`} 
-                className="h-10 md:h-12 w-auto object-contain" 
-              />
-            </div>
-          ))}
+        <div className="relative w-full">
+          <div 
+            className={cn(
+              "flex items-center gap-10 md:gap-16 lg:gap-24 animate-infinite-scroll",
+              isVisible ? "opacity-100" : "opacity-0"
+            )}
+            style={{ transition: "opacity 0.5s ease-out" }}
+          >
+            {duplicatedLogos.map((company, index) => (
+              <div 
+                key={index} 
+                className="flex-shrink-0 grayscale hover:grayscale-0 transition-all duration-300"
+              >
+                <img 
+                  src={company.logo} 
+                  alt={`${company.name} logo`} 
+                  className="h-10 md:h-12 w-auto object-contain" 
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
