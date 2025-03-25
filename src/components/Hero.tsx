@@ -12,7 +12,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[85vh] w-full flex flex-col justify-center items-center px-6 md:px-12 py-10">
+    <section className="relative min-h-[85vh] w-full flex flex-col justify-center items-center px-6 md:px-12 py-10 mt-10">
       <div className="absolute inset-0 bg-gradient-to-b from-neutral-light/30 to-white -z-10" />
       
       {/* Blue blob decoration */}

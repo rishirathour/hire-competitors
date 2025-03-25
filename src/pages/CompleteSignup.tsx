@@ -1,14 +1,24 @@
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Eye, EyeOff } from 'lucide-react';
 
-const Login = () => {
+const CompleteSignup = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { email } = location.state || { email: '' };
   const [showPassword, setShowPassword] = useState(false);
+  
+  const handleCompleteSignup = (e: React.FormEvent) => {
+    e.preventDefault();
+    // In a real application, you would handle the signup here
+    // For now, we'll just navigate to the login page
+    navigate('/login');
+  };
   
   return (
     <div className="min-h-screen flex flex-row">
@@ -58,33 +68,65 @@ const Login = () => {
             </Link>
           </div>
           
-          <h1 className="text-3xl font-bold mb-2">Welcome back!</h1>
-          <p className="text-neutral mb-4">Sign in to access your recruiter dashboard</p>
+          <h1 className="text-3xl font-bold mb-2">Complete your profile</h1>
+          <p className="text-neutral mb-4">Just a few more details to get you started</p>
           
-          <form className="space-y-4">
+          <form onSubmit={handleCompleteSignup} className="space-y-4">
+            <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-1">
+                <Label htmlFor="firstName">First Name</Label>
+                <Input 
+                  id="firstName" 
+                  type="text" 
+                  placeholder="Enter first name" 
+                  className="h-10"
+                  required
+                />
+              </div>
+              
+              <div className="space-y-1">
+                <Label htmlFor="lastName">Last Name</Label>
+                <Input 
+                  id="lastName" 
+                  type="text" 
+                  placeholder="Enter last name" 
+                  className="h-10"
+                  required
+                />
+              </div>
+            </div>
+            
             <div className="space-y-1">
-              <Label htmlFor="email">Work Email</Label>
+              <Label htmlFor="workEmail">Work Email</Label>
               <Input 
-                id="email" 
+                id="workEmail" 
                 type="email" 
-                placeholder="Enter your work email" 
-                className="h-10"
+                value={email}
+                className="h-10 bg-gray-50"
+                readOnly
               />
             </div>
             
             <div className="space-y-1">
-              <div className="flex justify-between items-center">
-                <Label htmlFor="password">Password</Label>
-                <Link to="/forgot-password" className="text-xs text-primary hover:text-primary-light">
-                  Forgot password?
-                </Link>
-              </div>
+              <Label htmlFor="company">Company</Label>
+              <Input 
+                id="company" 
+                type="text" 
+                placeholder="Enter your company name" 
+                className="h-10"
+                required
+              />
+            </div>
+            
+            <div className="space-y-1">
+              <Label htmlFor="signupPassword">Password</Label>
               <div className="relative">
                 <Input 
-                  id="password" 
+                  id="signupPassword" 
                   type={showPassword ? "text" : "password"} 
-                  placeholder="Enter your password" 
+                  placeholder="Create a password" 
                   className="h-10 pr-10"
+                  required
                 />
                 <button
                   type="button"
@@ -94,43 +136,24 @@ const Login = () => {
                   {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
               </div>
+              <p className="text-xs text-neutral">Must be at least 8 characters</p>
             </div>
             
-            <div className="flex items-center space-x-2">
-              <Checkbox id="remember" />
-              <Label htmlFor="remember" className="text-xs font-normal">Remember me for 30 days</Label>
+            <div className="flex items-start space-x-2">
+              <Checkbox id="terms" className="mt-1" required />
+              <Label htmlFor="terms" className="text-xs font-normal">
+                I agree to Switch iT's <a href="#" className="text-primary hover:underline">Terms of Service</a> and <a href="#" className="text-primary hover:underline">Privacy Policy</a>
+              </Label>
             </div>
             
             <Button type="submit" className="w-full h-10 text-sm">
-              Sign in
+              Complete Registration
             </Button>
           </form>
-          
-          <div className="mt-6">
-            <div className="relative flex items-center justify-center">
-              <div className="border-t border-gray-200 w-full absolute"></div>
-              <span className="bg-white px-4 relative text-xs text-neutral">Or sign in with</span>
-            </div>
-            
-            <div className="mt-4 grid grid-cols-2 gap-4">
-              <Button variant="outline" className="h-10 font-normal text-sm">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" className="w-5 h-5 mr-2" />
-                Google
-              </Button>
-              <Button variant="outline" className="h-10 font-normal text-sm">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" className="w-5 h-5 mr-2" />
-                LinkedIn
-              </Button>
-            </div>
-          </div>
-          
-          <p className="text-center mt-6 text-neutral text-sm">
-            Don't have an account? <Link to="/signup" className="text-primary hover:text-primary-light font-medium">Sign up</Link>
-          </p>
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default CompleteSignup;

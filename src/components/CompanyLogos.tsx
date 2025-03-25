@@ -25,11 +25,7 @@ const CompanyLogos = () => {
   }, []);
 
   const logos = [
-    { name: "Spotify", logo: "/lovable-uploads/34bde5f7-f781-41a8-aabb-f1ef3de0c655.png" },
-    { name: "Palo Alto Networks", logo: "/lovable-uploads/0aa27713-af56-4c86-ba3f-ffd0691b4258.png" },
     { name: "Snowflake", logo: "/lovable-uploads/488e5952-a522-467e-ab7e-aaff67a87ef7.png" },
-    { name: "Sisense", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Sisense_logo.svg/2560px-Sisense_logo.svg.png" },
-    { name: "American Express", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/1000px-American_Express_logo_%282018%29.svg.png" },
   ];
 
   return (
