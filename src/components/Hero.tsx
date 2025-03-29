@@ -11,6 +11,14 @@ const Hero = () => {
     setIsLoaded(true);
   }, []);
 
+  const scrollToHowItWorks = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const howItWorksSection = document.getElementById('how-it-works-section');
+    if (howItWorksSection) {
+      howItWorksSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <section className="relative min-h-[85vh] w-full flex flex-col justify-center items-center px-6 md:px-12 py-10 -mt-15">
       <div className="absolute inset-0 bg-gradient-to-b from-neutral-light/30 to-white -z-10" />
@@ -60,11 +68,12 @@ const Hero = () => {
               Get Started
             </Button>
           </Link>
-          <Link to="/how-it-works">
-            <Button size="lg" variant="outline" className="border-neutral px-8 py-6 text-lg transition-colors hover:border-primary hover:text-primary">
-              How It Works
-            </Button>
-          </Link>
+          <button 
+            onClick={scrollToHowItWorks}
+            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-neutral bg-background hover:bg-accent hover:text-accent-foreground h-11 rounded-md px-8 border-neutral px-8 py-6 text-lg transition-colors hover:border-primary hover:text-primary"
+          >
+            How It Works
+          </button>
         </div>
       </div>
     </section>
